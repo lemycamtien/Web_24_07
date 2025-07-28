@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập mật khẩu an toàn</h3>
+    <input id="passInput" type="password" placeholder="Nhập mật khẩu..." />
+    <button onclick="kiemTraMatKhau()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraMatKhau() {
+        var pass = document.getElementById("passInput").value;
+        var ketqua = document.getElementById("thongbao");
+
+        var passwordRegex =
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+        if (passwordRegex.test(pass)) {
+          ketqua.innerText = "Mật khẩu hợp lệ và an toàn!";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText = "Mật khẩu không an toàn ";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
