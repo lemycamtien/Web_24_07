@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+<style>
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+  <h3>Nhập địa chỉ IP </h3>
+  <input id="ipInput" placeholder="VD: 192.168.1.1">
+  <button onclick="kiemTraIP()">Kiểm tra</button>
+  <p id="thongbao"></p>
+
+  <script>
+    function kiemTraIP() {
+      var input = document.getElementById("ipInput").value;
+      var ketqua = document.getElementById("thongbao");
+
+      var ipRegex = /^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$/;
+
+      if (ipRegex.test(input)) {
+        ketqua.innerText = "Địa chỉ IP hợp lệ";
+        ketqua.className = "success";
+      } else {
+        ketqua.innerText = "Địa chỉ IP không hợp lệ";
+        ketqua.className = "error";
+      }
+    }
+  </script>
+</html>
