@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="postcode">Mã bưu điện:</label>
+    <input type="text" id="postcode" />
+    <button onclick="kiemTraPostcode()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraPostcode() {
+        var input = document.getElementById("postcode").value;
+        var ketqua = document.getElementById("thongbao");
+        var postcodeRegex = /^\d{5}$/;
+
+        if (postcodeRegex.test(input)) {
+          ketqua.innerText = "Mã bưu điện hợp lệ";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText = "Mã bưu điện không hợp lệ";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
