@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập Username</h3>
+    <input id="usernameInput" placeholder="Nhập username" />
+    <button onclick="kiemTraUsername()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraUsername() {
+        var input = document.getElementById("usernameInput").value;
+        var ketqua = document.getElementById("thongbao");
+
+        var usernameRegex = /^[a-zA-Z0-9_]{5,15}$/;
+
+        if (usernameRegex.test(input)) {
+          ketqua.innerText = "Username hợp lệ";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText =
+            "Username phải gồm chữ, số, dấu _ và từ 5-15 ký tự";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
