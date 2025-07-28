@@ -22,15 +22,15 @@
     <script>
       function kiemTraSo() {
         var input = document.getElementById("phoneInput").value;
-        var thongbao = document.getElementById("thongbao");
+        var ketqua = document.getElementById("ketqua");
         var phoneRegex = /^0\d{9}$/;
 
         if (phoneRegex.test(input)) {
-          thongbao.innerText = `Số điện thoại hợp lệ`;
-          thongbao.className = "success";
+          ketqua.innerText = `Số điện thoại hợp lệ`;
+          ketqua.className = "success";
         } else {
-          thongbao.innerText = `Không hợp lệ. Phải bắt đầu bằng 0 và có đúng 10 chữ số`;
-          thongbao.className = "error";
+          ketqua.innerText = `Không hợp lệ. Phải bắt đầu bằng 0 và có đúng 10 chữ số`;
+          ketqua.className = "error";
         }
       }
     </script>
