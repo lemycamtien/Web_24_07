@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập số điện thoại Việt Nam</h3>
+    <input id="phoneInput" placeholder="Ví dụ: 0234567890" />
+    <button onclick="kiemTraSo()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraSo() {
+        var input = document.getElementById("phoneInput").value;
+        var thongbao = document.getElementById("thongbao");
+        var phoneRegex = /^0\d{9}$/;
+
+        if (phoneRegex.test(input)) {
+          thongbao.innerText = `Số điện thoại hợp lệ`;
+          thongbao.className = "success";
+        } else {
+          thongbao.innerText = `Không hợp lệ. Phải bắt đầu bằng 0 và có đúng 10 chữ số`;
+          thongbao.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
