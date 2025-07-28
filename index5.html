@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="ngayInput" placeholder="Nhập ngày sinh dd/mm/yyyy" />
+    <button onclick="btncheck()">Check</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function btncheck() {
+        let input = document.getElementById("ngayInput").value.trim();
+        let ketqua = document.getElementById("thongbao");
+
+        let regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+        let match = input.match(regex);
+
+        if (!match) {
+          ketqua.innerText = "Sai định dạng ngày (dd/mm/yyyy)";
+          ketqua.className = "error";
+          return;
+        }
+
+        let ngay = parseInt(match[1]);
+        let thang = parseInt(match[2]);
+        let nam = parseInt(match[3]);
+
+        let date = new Date(nam, thang - 1, ngay);
+
+        if (
+          date.getDate() === ngay &&
+          date.getMonth() === thang - 1 &&
+          date.getFullYear() === nam
+        ) {
+          ketqua.innerText = "Ngày hợp lệ";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText = "Ngày không hợp lệ";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
