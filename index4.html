@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập Họ và Tên</h3>
+    <input id="hoTenInput" placeholder="Nhập họ tên đầy đủ" />
+    <button onclick="kiemTraHoTen()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraHoTen() {
+        var hoten = document.getElementById("hoTenInput").value;
+        var ketqua = document.getElementById("thongbao");
+
+        var regex = /^[A-Za-zÀ-Ỹà-ỹ\s]+$/;
+
+        if (hoten === "") {
+          ketqua.innerText = "Không được để trống";
+          ketqua.className = "error";
+        } else if (!regex.test(hoten)) {
+          ketqua.innerText = "Họ tên không được chứa số hoặc ký tự đặc biệt";
+          ketqua.className = "error";
+        } else {
+          ketqua.innerText = `Họ tên hợp lệ`;
+          ketqua.className = "success";
+        }
+      }
+    </script>
+  </body>
+</html>
