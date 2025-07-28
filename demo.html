@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="dateinput">Tìm ngày:</label>
+    <input id="dateinput" type="date" />
+    <button id="btncheck">Check</button>
+    <script>
+      var dateinput = document.getElementById("dateinput");
+      var btncheck = document.getElementById("btncheck");
+      var today = new Date();
+      dateinput.onchange = () => {
+        var mydate = new Date(dateinput.value);
+        console.log(mydate);
+
+        if (today > mydate) {
+          console.log("Ngày trong quá khứ");
+        } else if (today === mydate) {
+          console.log("Ngày hiện tại");
+        } else {
+          console.log("Ngày trong tương lai");
+        }
+      };
+    </script>
+  </body>
+</html>

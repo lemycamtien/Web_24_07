@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Nhập địa chỉ email:</h2>
+    <input id="emailInput" placeholder="example@gmail.com" />
+    <button onclick="kiemTraEmail()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraEmail() {
+        var email = document.getElementById("emailInput").value;
+        var thongbao = document.getElementById("thongbao");
+        var emailPattern =
+          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+        if (emailPattern.test(email)) {
+          thongbao.innerText = "Email hợp lệ";
+          thongbao.className = "success";
+        } else {
+          thongbao.innerText = "Email không hợp lệ";
+          thongbao.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
