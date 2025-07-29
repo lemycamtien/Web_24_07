@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập URL</h3>
+    <input id="urlInput" placeholder="Nhập URL hợp lệ" />
+    <button onclick="kiemTraURL()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraURL() {
+        var input = document.getElementById("urlInput").value.trim();
+        var ketqua = document.getElementById("thongbao");
+
+        var urlRegex =
+          /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/;
+
+        if (urlRegex.test(input)) {
+          ketqua.innerText = "URL hợp lệ";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText = "URL không hợp lệ";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
