@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Nhập số thẻ tín dụng</h3>
+    <input id="cardInput" placeholder="Nhập số thẻ tín dụng" />
+    <button onclick="kiemTraThe()">Kiểm tra</button>
+    <p id="thongbao"></p>
+
+    <script>
+      function kiemTraThe() {
+        var input = document.getElementById("cardInput").value;
+        var ketqua = document.getElementById("thongbao");
+
+        var theRegex = /^(\d{16}|\d{4} \d{4} \d{4} \d{4})$/;
+
+        if (theRegex.test(input)) {
+          ketqua.innerText = "Số thẻ hợp lệ";
+          ketqua.className = "success";
+        } else {
+          ketqua.innerText = "Số thẻ không hợp lệ ";
+          ketqua.className = "error";
+        }
+      }
+    </script>
+  </body>
+</html>
